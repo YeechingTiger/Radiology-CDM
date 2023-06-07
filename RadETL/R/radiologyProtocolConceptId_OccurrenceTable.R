@@ -44,6 +44,11 @@ radiologyProtocolConceptId<-function(DICOMList){
         colnames(protocolName)<-'protocolName'
         return(cbind(anatomicRegion, radiologyOccurrenceId, radiologyPhaseConceptId, modality, imageOrientationConceptId, protocolName))})
     radiologyProtocolConceptId<-sapply(information, function(x){
+        print(anatomicRegion)
+        print(modality)
+        print(imageOrientationConceptId)
+        print(radiologyPhaseConceptId)
+        print(protocolName)
         if(grepl('chest', x$anatomicRegion)==T & grepl('DX', x$modality)==T & grepl('43591', x$imageOrientationConceptId)==T & grepl('43594', x$imageOrientationConceptId)==T){
             return('3031526')
         }
